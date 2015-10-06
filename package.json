@@ -1,6 +1,6 @@
 {
   "name": "devtoolz",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A collection of scripts to assist developers with their daily workflow.",
   "main": "refresh.js",
   "scripts": {

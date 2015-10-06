@@ -77,7 +77,7 @@ function displayHeader (callback) {
         // Display header.
         console.log('****************************************');
         console.log('*                                      *');
-        console.log('*          SvnDevTools v' + module.exports.version + '          *');
+        console.log('*            DevToolz v' + module.exports.version + '           *');
         console.log('*                                      *');
         console.log('****************************************');
         console.log();

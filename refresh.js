@@ -1,6 +1,3 @@
-#!/usr/bin/env node
-
-
 var _         = require('lodash');
 var fs        = require('fs');
 var execFile  = require('child_process').execFile;
@@ -77,7 +74,7 @@ function displayHeader (callback) {
         // Display header.
         console.log('****************************************');
         console.log('*                                      *');
-        console.log('*          SvnDevTools v' + module.exports.version + '          *');
+        console.log('*            DevToolz v' + module.exports.version + '           *');
         console.log('*                                      *');
         console.log('****************************************');
         console.log();

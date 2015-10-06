@@ -1,5 +1,5 @@
 {
-    "reposRoot": "https://svn.fakesoftware.com/CODE/",
+    "svnRepos": "https://svn.fakesoftware.com/CODE/",
 
     "buildConfig": {
         "msbuild": {

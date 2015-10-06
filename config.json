@@ -1,0 +1,68 @@
+{
+    "reposRoot": "https://svn.fakesoftware.com/CODE/",
+
+    "buildConfig": {
+        "msbuild": {
+            "buildFileX": "C:/Windows/Microsoft.NET/Framework/v4.0.30319/MSBuild.exe",
+            "buildFile": "MSBuild.exe",
+            "buildArgs": [
+                "/verbosity:q",
+                "/t:Rebuild"
+            ]
+        },
+
+        "sencha": {
+            "buildFile": "sencha.exe",
+            "buildArgs": [
+                "app",
+                "build"
+            ]
+        }
+    },
+
+    "projects": [{
+        "name": "Web",
+        "path": "/cygdrive/c/Dev/Projects/Web",
+        "buildTool": "msbuild",
+        "buildPath": "C:/Dev/Projects/Web",
+        "slnFile": "Web.sln"
+    }, {
+        "name": "RB-1.0",
+        "path": "/cygdrive/c/Dev/Projects/RB-1.0",
+        "buildTool": "msbuild",
+        "buildPath": "C:/Dev/Projects/RB-1.0",
+        "slnFile": "Web.sln"
+    }, {
+        "name": "Configuration",
+        "path": "/cygdrive/c/Dev/Projects/Configuration",
+        "buildTool": "msbuild",
+        "buildPath": "C:/Dev/Projects/Configuration",
+        "slnFile": "Configuration.sln"
+    }, {
+        "name": "Portal",
+        "path": "/cygdrive/c/Dev/Projects/Portal",
+        "buildTool": "sencha",
+        "buildPath": "C:/Dev/Projects/Portal"
+    }, {
+        "name": "ClientAPI",
+        "path": "/cygdrive/c/Dev/Projects/ClientAPI",
+        "buildTool": "msbuild",
+        "buildPath": "C:/Dev/Projects/ClientAPI",
+        "slnFile": "ClientAPI.sln"
+    }],
+
+    "workspaces": [{
+        "name": "PortalStack",
+        "projects": [
+            "Configuration",
+            "ClientAPI",
+            "Portal"
+        ]
+    }, {
+        "name": "DevStack",
+        "projects": [
+            "ClientAPI",
+            "RB-1.0"
+        ]
+    }]
+}

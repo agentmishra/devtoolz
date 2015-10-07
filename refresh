@@ -238,7 +238,7 @@ function validateTargetWorkspace (target, callback) {
 function refreshTargetProject (project, callback) {
     console.log('Refreshing ' + project.name + ':');
     process.stdout.write('  Updating local copy...');
-    svn.commands.update(project.path, {quiet: true}, function (err, msg) {
+    svn.commands.update(project.path, {quiet: false, force: true}, function (err, msg) {
         if (err) return callback(err);
 
         process.stdout.write('complete.\n');
@@ -247,16 +247,45 @@ function refreshTargetProject (project, callback) {
             var bc = _.clone(opts.value.buildConfig[project.buildTool], true),
                 options = { cwd: project.buildPath, maxBuffer: 1000 * 1024 };
 
-            if (project.buildTool === 'msbuild') bc.buildArgs.push(project.slnFile);
+            if (project.buildTool === 'msbuild') {
+                // Clone nuget config
+                var nc = _.clone(opts.value.buildConfig.nuget, true);
 
-            process.stdout.write('  Rebuilding solution...');
-            execFile(bc.buildFile, bc.buildArgs, options, function (err, stdout, stderr) {
-                if (err) return callback(err);
+                // Add sln file as second argument for nuget
+                nc.buildArgs.splice(1, 0, project.slnFile);
 
-                process.stdout.write('complete.\n');
-                console.log();
-                callback();
-            });
+                process.stdout.write('  Restoring nuget packages...');
+                execFile(nc.buildFile, nc.buildArgs, options, function (err, stdout, stderr) {
+                    // if (stdout) console.log(stdout);
+                    if (stderr) console.log(stderr);
+                    if (err) return callback(err);
+
+                    process.stdout.write('complete.\n');
+
+                    // Add sln file to arguments
+                    bc.buildArgs.push(project.slnFile);
+
+                    // Now let's build solution
+                    process.stdout.write('  Rebuilding solution...');
+                    execFile(bc.buildFile, bc.buildArgs, options, function (err, stdout, stderr) {
+                        if (err) return callback(err);
+
+                        process.stdout.write('complete.\n');
+                        console.log();
+                        callback();
+                    });
+                });
+
+            } else {
+                process.stdout.write('  Rebuilding solution...');
+                execFile(bc.buildFile, bc.buildArgs, options, function (err, stdout, stderr) {
+                    if (err) return callback(err);
+
+                    process.stdout.write('complete.\n');
+                    console.log();
+                    callback();
+                });
+            }
 
         } else {
             console.log();

@@ -2,6 +2,16 @@
     "svnRepos": "https://svn.fakesoftware.com/CODE/",
 
     "buildConfig": {
+        "nuget": {
+            "buildFile": "nuget",
+            "buildArgs": [
+                "restore",
+                "-Verbosity",
+                "quiet",
+                "-NonInteractive"
+            ]
+        },
+
         "msbuild": {
             "buildFileX": "C:/Windows/Microsoft.NET/Framework/v4.0.30319/MSBuild.exe",
             "buildFile": "MSBuild.exe",

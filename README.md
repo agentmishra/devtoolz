@@ -1,2 +1,2 @@
 # devtoolz
-A collection of scripts to assist developers with their daily workflow.
+A collection of scripts to assist developers with source code management.

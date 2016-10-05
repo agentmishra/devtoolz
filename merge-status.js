@@ -53,6 +53,7 @@ function setupProgramInfo (callback) {
         .option('-b, --branch <branch name>', 'perform a merge status on target branch for all configured projects')
         .option('-c, --config <file>', 'path to configuration file - default path is current directory')
         .option('-l, --log <number of commits>', 'number of TRUNK log commits to include - default is 1,000')
+        .option('-a, --author <name of author>', 'filters results by author name')
         .parse(process.argv);
 
     callback();
@@ -193,6 +194,11 @@ function processBranchGroup (branchGroup, callback) {
     console.log('Checking merge status on branch ' + branchGroup.name + ' back to TRUNK...');
     console.log();
 
+    if (program.author) {
+        console.log('Filtering by author: ' + program.author);
+        console.log();
+    }
+
     _.forEach(branchGroup.projects, function (project, pi, allProjects) {
         var targetProject = _.find(config.mergeProjects, _.matchesProperty('name', project));
 
@@ -272,11 +278,23 @@ function processProject (project, callback) {
                         !log.msg.includes('Updated version information') &&
                         !log.msg.includes('MERGE'));
             });
+            // console.log(project.projectUri.replace('/', ''));
+            // console.log(filteredLogs);
+            // console.log();
             // console.log('Total filtered logs: ' + filteredLogs.length);
             // console.log('-------------------------------------');
             // console.log();
+            // callback(null, {status: '', commits: 0, project: project.projectUri.replace('/', '')});
+            // return;
 
             var isBranchOutstanding = false;
+
+            // If author option is set, filter logs by author.
+            if (program.author) {
+                filteredLogs = _.filter(filteredLogs, function (log) {
+                    return (log.author === program.author);
+                });
+            }
 
             // var totalCommits = Array.isArray(msg.logentry) ? msg.logentry.length : 1;
             var totalCommits = filteredLogs.length;
@@ -284,9 +302,11 @@ function processProject (project, callback) {
             if ((typeof trunkMerge === 'undefined') && totalCommits >= 1) {
                 isBranchOutstanding = true;
             } else if (typeof trunkMerge !== 'undefined') {
-                var currentRevision = parseInt(filteredLogs[0].$.revision);
-                if (currentRevision > branchMergeRevision) {
-                    isBranchOutstanding = true;
+                if (totalCommits > 0) {
+                    var currentRevision = parseInt(filteredLogs[0].$.revision);
+                    if (currentRevision > branchMergeRevision) {
+                        isBranchOutstanding = true;
+                    }
                 }
             }
 

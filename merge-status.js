@@ -50,7 +50,8 @@ function processError (err) {
 function setupProgramInfo (callback) {
     program
         .version(module.exports.version)
-        .option('-b, --branch <branch name>', 'perform a merge status on target branch for all configured projects')
+        .arguments('<branch>')
+        .description('Perform a merge status on target branch for configured projects.')
         .option('-c, --config <file>', 'path to configuration file - default path is current directory')
         .option('-l, --log <number of commits>', 'number of TRUNK log commits to include - default is 1,000')
         .option('-a, --author <name of author>', 'filters results by author name')
@@ -98,13 +99,16 @@ function validateProgram (callback) {
     var errMsg = '';
 
     // Arguments must be set.
-    if (process.argv.length <= 2) {
+    if (program.args.length === 0) {
         isValid = false;
         errMsg = 'No arguments defined.';
     }
 
     // If already invalid, return error.
     if (!isValid) return callback(new Error(errMsg));
+
+    // Set program level branch based on args. Supporting backwards compatibility.
+    program.branch = program.args[0];
 
     // Set config path based on defined or default setting.
     var configPath = program.config ? program.config : 'config.json';

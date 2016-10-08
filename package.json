@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
+    "dt": "devtoolz.js",
     "refresh": "refresh.js",
     "merge-status": "merge-status.js"
   },

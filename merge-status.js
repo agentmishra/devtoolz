@@ -279,6 +279,13 @@ function processProject (project, callback) {
             var filteredLogs = _.filter(logs, function (log) {
                 return (!log.msg.includes('Created release branch') &&
                         !log.msg.includes('Created feature branch') &&
+                        !log.msg.includes('Created DataConfig') &&
+                        !log.msg.includes('Created Functions') &&
+                        !log.msg.includes('Created StoredProcs') &&
+                        !log.msg.includes('Created Tables') &&
+                        !log.msg.includes('Created Views') &&
+                        !log.msg.includes('Created ClientSettings') &&
+                        !log.msg.includes('Initial setup') &&
                         !log.msg.includes('Updated svn:externals') &&
                         !log.msg.includes('Updated project file') &&
                         !log.msg.includes('Updated version information') &&

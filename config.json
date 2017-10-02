@@ -1,5 +1,5 @@
 {
-    "svnRepos": "https://svn.creditpointsoftware.com/CPS/",
+    "svnRepos": "https://svn.fakesoftware.com/CODE/",
 
     "buildConfig": {
         "nuget": {
@@ -12,7 +12,7 @@
             ]
         },
         "msbuild": {
-            "buildFileExample": "I:/Windows/Microsoft.NET/Framework/v4.0.30319/MSBuild.exe",
+            "buildFileX": "C:/Windows/Microsoft.NET/Framework/v4.0.30319/MSBuild.exe",
             "buildFile": "MSBuild.exe",
             "buildArgs": [
                 "/verbosity:q",
@@ -30,77 +30,47 @@
 
     "projects": [{
         "name": "Web",
-        "path": "I:/Code/Web",
+        "path": "/cygdrive/c/Dev/Projects/Web",
         "buildTool": "msbuild",
-        "buildPath": "I:/Code/Web",
+        "buildPath": "C:/Dev/Projects/Web",
         "slnFile": "Web.sln"
     }, {
-        "name": "CreditPoint.ClientAPI",
-        "path": "I:/Code/CreditPoint.ClientAPI",
+        "name": "RB-1.0",
+        "path": "/cygdrive/c/Dev/Projects/RB-1.0",
         "buildTool": "msbuild",
-        "buildPath": "I:/Code/CreditPoint.ClientAPI",
-        "slnFile": "CreditPoint.ClientAPI.sln"
+        "buildPath": "C:/Dev/Projects/RB-1.0",
+        "slnFile": "Web.sln"
     }, {
-        "name": "CreditPoint.ClientConfiguration",
-        "path": "I:/Code/CreditPoint.ClientConfiguration",
+        "name": "Configuration",
+        "path": "/cygdrive/c/Dev/Projects/Configuration",
         "buildTool": "msbuild",
-        "buildPath": "I:/Code/CreditPoint.ClientConfiguration",
-        "slnFile": "CreditPoint.ClientConfiguration.sln"
+        "buildPath": "C:/Dev/Projects/Configuration",
+        "slnFile": "Configuration.sln"
     }, {
-        "name": "PortalFoundation",
-        "path": "I:/Code/PortalFoundation",
+        "name": "Portal",
+        "path": "/cygdrive/c/Dev/Projects/Portal",
         "buildTool": "sencha",
-        "buildPath": "I:/Code/PortalFoundation"
+        "buildPath": "C:/Dev/Projects/Portal"
     }, {
-        "name": "FB-ProviderTasks",
-        "path": "I:/Code/FB-ProviderTasks",
+        "name": "ClientAPI",
+        "path": "/cygdrive/c/Dev/Projects/ClientAPI",
         "buildTool": "msbuild",
-        "buildPath": "I:/Code/FB-ProviderTasks",
-        "slnFile": "Web.sln"
-    }, {
-        "name": "Demo-Contracts",
-        "path": "I:/Code/Demo-Contracts",
-        "buildTool": "msbuild",
-        "buildPath": "I:/Code/Demo-Contracts",
-        "slnFile": "Web.sln"
-    }, {
-        "name": "RB-12.0",
-        "path": "I:/Code/RB-12.0",
-        "buildTool": "msbuild",
-        "buildPath": "I:/Code/RB-12.0",
-        "slnFile": "Web.sln"
-    }, {
-        "name": "RB-13.0",
-        "path": "I:/Code/RB-13.0",
-        "buildTool": "msbuild",
-        "buildPath": "I:/Code/RB-13.0",
-        "slnFile": "Web.sln"
-    }, {
-        "name": "RB-13.1",
-        "path": "I:/Code/RB-13.1",
-        "buildTool": "msbuild",
-        "buildPath": "I:/Code/RB-13.1",
-        "slnFile": "Web.sln"
+        "buildPath": "C:/Dev/Projects/ClientAPI",
+        "slnFile": "ClientAPI.sln"
     }],
 
     "workspaces": [{
         "name": "PortalStack",
         "projects": [
-            "CreditPoint.ClientConfiguration",
-            "CreditPoint.ClientAPI",
-            "PortalFoundation"
+            "Configuration",
+            "ClientAPI",
+            "Portal"
         ]
     }, {
         "name": "DevStack",
         "projects": [
-            "CreditPoint.ClientAPI",
-            "FB-ProviderTasks"
-        ]
-    }, {
-        "name": "Regression",
-        "projects": [
-            "CreditPoint.ClientAPI",
-            "RB-13.1"
+            "ClientAPI",
+            "RB-1.0"
         ]
     }],
 
@@ -120,236 +90,43 @@
         "name": "Common",
         "projectUri": "Common/"
     }, {
-        "name": "CMBusiness",
-        "projectUri": "CMBusiness/"
-    }, {
-        "name": "LegacyBusiness",
-        "projectUri": "LegacyBusiness/"
-    }, {
         "name": "EntityModels",
         "projectUri": "EntityModels/",
         "trunkUri": "Trunk/"
     }, {
-        "name": "CPSIntegration",
-        "projectUri": "CPSIntegration/",
-        "trunkUri": "Trunk/CPSIntegration/"
-    }, {
-        "name": "CPSReporting",
-        "projectUri": "CPSReporting/"
-    }, {
-        "name": "CreditPoint.Data",
-        "projectUri": "CreditPoint.Data/"
-    }, {
-        "name": "CreditPoint.Workflow",
-        "projectUri": "CreditPoint.Workflow/"
-    }, {
         "name": "Libraries",
         "projectUri": "Libraries/"
     }, {
-        "name": "PublicCreditAppLanding",
-        "projectUri": "PublicCreditAppLanding/"
-    }, {
-        "name": "CreditPoint.Security",
-        "projectUri": "CreditPoint.Security/"
-    }, {
-        "name": "CPSIntegrationProxy",
-        "projectUri": "CPSIntegrationProxy/"
-    }, {
-        "name": "CreditPoint.ClientAPI",
-        "projectUri": "CreditPoint.ClientAPI/"
-    }, {
-        "name": "CreditPoint.ClientConfiguration",
-        "projectUri": "CreditPoint.ClientConfiguration/"
-    }, {
-        "name": "CreditPoint.OData",
-        "projectUri": "CreditPoint.OData/"
-    }, {
-        "name": "CreditPoint.IntegrationAPI",
-        "projectUri": "CreditPoint.IntegrationAPI/"
-    }, {
-        "name": "WorkflowEventsApp",
-        "projectUri": "WorkflowEventsApp/"
-    }, {
         "name": "Bureau",
         "projectUri": "Bureau/"
-    }, {
-        "name": "BureauConsoleTester",
-        "projectUri": "BureauConsoleTester/"
-    }, {
-        "name": "CapIQDataAPI",
-        "projectUri": "CapIQDataAPI/"
-    }, {
-        "name": "CreditPoint.Data.CapIQ",
-        "projectUri": "CreditPoint.Data.CapIQ/"
-    }, {
-        "name": "RulesetProcessor",
-        "projectUri": "RulesetProcessor/"
-    }, {
-        "name": "CriteriaProcessingEngine",
-        "projectUri": "CriteriaProcessingEngine/"
-    }, {
-        "name": "PublicCreditApp",
-        "projectUri": "PublicCreditApp/"
-    }, {
-        "name": "PortalCreditApp",
-        "projectUri": "PortalCreditApp/"
-    }, {
-        "name": "PortalDisputeResolution",
-        "projectUri": "PortalDisputeResolution/"
-    }, {
-        "name": "PortalFoundation",
-        "projectUri": "PortalFoundation/"
-    }, {
-        "name": "PortalCore",
-        "projectUri": "PortalCore/"
-    }, {
-        "name": "CreditPoint.IntegrationHelper",
-        "projectUri": "CreditPoint.IntegrationHelper/"
-    }, {
-        "name": "BureauIntegrationService",
-        "projectUri": "BureauIntegrationService/"
     }],
 
     "mergeBranchGroups": [{
-        "name": "FB-Echo1",
-        "projects": [
-            "Web",
-            "Common",
-            "LegacyBusiness",
-            "EntityModels",
-            "CPSIntegration",
-            "CPSReporting",
-            "CreditPoint.Data",
-            "CreditPoint.Workflow",
-            "Libraries",
-            "CreditPoint.Security",
-            "CreditPoint.ClientAPI",            
-            "CriteriaProcessingEngine",
-            "PublicCreditApp",
-            "PublicCreditAppLanding",
-            "PortalCreditApp",
-            "PortalFoundation",
-            "PortalCore",
-            "CreditPoint.IntegrationAPI",
-            "Bureau",
-            "BureauConsoleTester",
-            "CreditPoint.IntegrationHelper",
-            "BureauIntegrationService"
-        ]
-    }, {
-        "name": "RB-14.0",
-        "projects": [
-            "Web",
-            "Common",
-            "LegacyBusiness",
-            "EntityModels",
-            "CPSIntegration",
-            "CPSReporting",
-            "CreditPoint.Data",
-            "CreditPoint.Workflow",
-            "Libraries",
-            "CreditPoint.Security",
-            "CreditPoint.ClientAPI",
-            "WorkflowEventsApp",
-            "CriteriaProcessingEngine"
-        ]
-    }, {
-        "name": "RB-13.1",
-        "projects": [
-            "Web",
-            "Common",
-            "LegacyBusiness",
-            "EntityModels",
-            "CPSIntegration",
-            "CPSReporting",
-            "CreditPoint.Data",
-            "CreditPoint.Workflow",
-            "Libraries",
-            "CreditPoint.Security",
-            "CreditPoint.ClientAPI",
-            "WorkflowEventsApp",
-            "CriteriaProcessingEngine"
-        ]
-    }, {
         "name": "RB-13.0",
         "projects": [
             "Web",
             "Common",
-            "LegacyBusiness",
             "EntityModels",
-            "CPSIntegration",
-            "CPSReporting",
-            "CreditPoint.Data",
-            "CreditPoint.Workflow",
             "Libraries",
-            "PublicCreditAppLanding",
-            "CreditPoint.Security",
-            "CPSIntegrationProxy",
-            "CreditPoint.ClientAPI",
-            "CreditPoint.ClientConfiguration",
-            "CreditPoint.OData",
-            "Bureau",
-            "BureauConsoleTester",
-            "RulesetProcessor",
-            "CriteriaProcessingEngine"
+            "Bureau"
+        ]
+    }, {
+        "name": "FB-Foxtrot",
+        "projects": [
+            "Web",
+            "Common",
+            "EntityModels",
+            "Libraries",
+            "Bureau"
         ]
     }, {
         "name": "RB-12.0",
         "projects": [
             "Web",
             "Common",
-            "LegacyBusiness",
             "EntityModels",
-            "CPSIntegration",
-            "CPSReporting",
-            "CreditPoint.Data",
-            "CreditPoint.Workflow",
             "Libraries",
-            "CreditPoint.Security",
-            "CreditPoint.ClientAPI",
-            "CreditPoint.ClientConfiguration",
-            "CreditPoint.OData",
-            "CreditPoint.IntegrationAPI",
-            "WorkflowEventsApp",
-            "Bureau",
-            "BureauConsoleTester"
-        ]
-    }, {
-        "name": "RB-10.0",
-        "projects": [
-            "Web",
-            "Common",
-            "LegacyBusiness",
-            "EntityModels",
-            "CPSIntegration",
-            "CPSReporting",
-            "CreditPoint.Data",
-            "CreditPoint.Workflow",
-            "Libraries",
-            "CreditPoint.Security",
-            "CreditPoint.ClientAPI",
-            "CreditPoint.ClientConfiguration",
-            "CreditPoint.OData",
-            "Bureau",
-            "BureauConsoleTester",
-            "CapIQDataAPI",
-            "CreditPoint.Data.CapIQ",
-            "RulesetProcessor",
-            "CriteriaProcessingEngine"
-        ]
-    }, {
-        "name": "RB-5.0-Crop",
-        "projects": [
-            "Web",
-            "Common",
-            "CMBusiness",
-            "LegacyBusiness",
-            "EntityModels",
-            "CPSIntegration",
-            "CPSReporting",
-            "CreditPoint.Data",
-            "CreditPoint.Workflow",
-            "Libraries"
+            "Bureau"
         ]
     }]
 }

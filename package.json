@@ -7,10 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "dt": "devtoolz.js",
     "refresh": "refresh.js",
     "merge-status": "merge-status.js",
-    "branch-list": "branch-list.js"
+    "branch-list": "branch-list.js",
+    "master-merge-status": "master-merge-status.js"
   },
   "keywords": [
     "svn",
@@ -26,12 +26,12 @@
   "license": "MIT",
   "dependencies": {
     "async": "^1.4.2",
-    "commander": "^2.8.1",
+    "commander": "^2.12.2",
     "lodash": "^3.10.1",
-    "node-svn-ultimate": "^1.0.0",
+    "node-svn-ultimate": "^1.1.0",
     "options": "0.0.6",
     "pkginfo": "^0.3.0",
     "printf": "^0.2.5",
-    "promise": "^7.1.1"
+    "promise": "^7.3.1"
   }
 }

@@ -252,5 +252,5 @@ function displayProcessTime () {
     timeDiff = Math.floor(timeDiff / 60);
     var minutes = Math.round(timeDiff % 60);
 
-    console.log('Merge status check complete in ' + minutes + ' minutes and ' + seconds + ' seconds.');
+    console.log('Branch list complete in ' + minutes + ' minutes and ' + seconds + ' seconds.');
 }
